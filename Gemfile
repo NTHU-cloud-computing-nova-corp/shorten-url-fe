@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+ruby File.read('.ruby-version').strip
 
 # Web
 gem 'puma'
@@ -29,4 +30,8 @@ end
 group :development, :test do
   gem 'rack-test'
   gem 'rerun'
+end
+
+group :production do
+  gem 'pg'
 end
