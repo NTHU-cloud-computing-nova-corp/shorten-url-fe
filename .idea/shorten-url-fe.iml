@@ -15,30 +15,37 @@
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.7, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.3, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="crack (v0.4.5, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20190701, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.15.5, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi-compiler (v1.0.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="figaro (v1.2.0, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="hashdiff (v1.0.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http (v5.0.4, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.4, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-form_data (v2.3.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.7.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="llhttp-ffi (v0.4.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.15.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.8, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.22.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v3.1.2.0, rbenv: 3.1.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pg (v1.3.5, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.14.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v4.0.7, rbenv: 3.1.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="puma (v5.6.4, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="puma (v5.3.2, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-rewrite (v1.5.1, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-ssl-enforcer (v0.2.9, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.6, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.11.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rbnacl (v7.1.1, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="redis (v4.6.0, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="redis-rack (v2.1.4, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="redis-store (v1.9.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.3.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rerun (v0.13.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.5, rbenv: 3.1.1) [gem]" level="application" />
@@ -54,18 +61,35 @@
     <orderEntry type="library" scope="PROVIDED" name="unf (v0.1.4, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unf_ext (v0.0.8.1, rbenv: 3.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v2.1.0, rbenv: 3.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="webmock (v3.14.0, rbenv: 3.1.1) [gem]" level="application" />
   </component>
   <component name="RakeTasksCache">
     <option name="myRootTask">
       <RakeTaskImpl id="rake">
         <subtasks>
+          <RakeTaskImpl description="Update vulnerabilities lit and audit gems" fullCommand="audit" id="audit" />
           <RakeTaskImpl description="Run application console (pry)" fullCommand="console" id="console" />
+          <RakeTaskImpl id="generate">
+            <subtasks>
+              <RakeTaskImpl description="Create rbnacl key" fullCommand="generate:msg_key" id="msg_key" />
+              <RakeTaskImpl description="Create cookie secret" fullCommand="generate:session_secret" id="session_secret" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl description="Checks for release" fullCommand="release" id="release" />
+          <RakeTaskImpl description="Rerun tests on live code changes" fullCommand="respec" id="respec" />
           <RakeTaskImpl id="run">
             <subtasks>
               <RakeTaskImpl description="Run Web App in development mode" fullCommand="run:dev" id="dev" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="Rake all the Ruby" fullCommand="style" id="style" />
+          <RakeTaskImpl id="session">
+            <subtasks>
+              <RakeTaskImpl description="Wipe all sessions stored in Redis" fullCommand="session:wipe" id="wipe" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl description="Run tests for spec" fullCommand="spec" id="spec" />
+          <RakeTaskImpl description="Run rubocop to check style" fullCommand="style" id="style" />
+          <RakeTaskImpl description="" fullCommand="load_lib" id="load_lib" />
           <RakeTaskImpl description="" fullCommand="print_env" id="print_env" />
         </subtasks>
       </RakeTaskImpl>

@@ -1,26 +1,28 @@
 nav role="navigation" class="navbar navbar-expand-sm navbar-dark bg-dark"
   div class="container-fluid"
     a class="navbar-brand" rel="home" href="/" title="URL Shortener"
-        img alt="UrlShortener" src="/img.png" style="max-width:35px; margin-top: -7px;"
+      img alt="UrlShortener" src="/logo.png" style="max-width:35px; margin-top: -7px;"
     a class="navbar-brand" href="/" Url Shortener
     button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"
       span class="navbar-toggler-icon"
 
     div class="collapse navbar-collapse" id="mainNavbar"
-      ul class="navbar-nav me-auto"
-        - if @current_account
+      ul.navbar-nav.me-auto
+        - if @current_account.logged_in?
           li class="nav-item"
-            a class="nav-link disabled" href="/" URLs
-          li class="nav-item dropdown"
-            a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
-              = "#{@current_account['username']}"
-
-            div class=-"dropdown-menu"
-              a class="dropdown-item" href="/account/#{@current_account['username']}" Account
-              a class="dropdown-item" href='/auth/logout' Logout
-        - else
-          li class="nav-item"
-            a class="nav-link" href='/auth/login' Login
-          li class="nav-item"
-            a class="nav-link disabled" href='/auth/login' Register
+            a#url-nav.nav-link href="/urls" URLs
+      form.d-flex
+        ul.navbar-nav.me-auto
+          - if @current_account.logged_in?
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
+                = "#{@current_account.account_info['attributes']['username']}"
+              div.dropdown-menu.end-0
+                a#profile-nav.dropdown-item href="/account/#{@current_account.account_info['attributes']['username']}" Account
+                a class="dropdown-item" href='/auth/logout' Logout
+          - else
+            li class="nav-item"
+              a class="nav-link" href='/auth/login' Login
+            li class="nav-item"
+              a class="nav-link" href='/auth/register' Register
         

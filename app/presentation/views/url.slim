@@ -1,0 +1,98 @@
+script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"
+script src="https://cdn.datatables.net/plug-ins/1.10.19/dataRender/ellipsis.js"
+
+script src="/js/urls.js"
+
+
+div.mt-5
+table#url_list.display style="width:100%;"
+  thead
+    tr
+      th Short Url
+      th Long Url
+      th Description
+      th Tags
+      th Manage
+  tbody
+    - for url in urls
+      tr
+        td id="short-#{url['short_url']}"
+          div style="display: flex; justify-content: space-between; place-items: center;"
+            div = url['short_url']
+            div
+              button.btn onclick="copy_url('#{request.base_url}/#{url['short_url']}')"
+                i.fa-solid.fa-copy
+        td id="long-#{url['short_url']}" = url['long_url']
+        td id="description-#{url['short_url']}" = url['description']
+        td style="width: 30%;"
+          - for tag in url['tags'].split(",")
+            .row
+              .col-6
+                span.badge.rounded-pill.bg-primary
+                  == tag
+                span.badge.rounded-pill.bg-primary
+                  == tag
+        td
+          button.btn.btn-info.mx-1 style="width: 38px;" type="button" onclick="open_update_url_modal('#{url.to_json}')"
+            i.fa-solid.fa-pen-to-square
+          button.btn.btn-danger style="width: 38px;" type="button" onclick="open_delete_url_modal('#{url['short_url']}')"
+            i.fa-solid.fa-trash
+
+#update-url-modal.modal.fade
+  .modal-dialog role="document"
+    .modal-content
+      form method='post' action='/urls/update' id='form-update-property'
+        input#update-url-id type="hidden" name="update_url_id"
+        .modal-header
+          h5#update-title.modal-title Update
+          button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+            span aria-hidden="true"
+        .modal-body
+          .form-group
+            label.col-form-label.mt-4 for="update-long-url"  Name
+            input#update-long-url.form-control name="update-long-url" placeholder=("Enter property name") type="text" required="true" /
+          .form-group
+            label.col-form-label.mt-4 for="update-description"  Description
+            input#update-description.form-control name="update_description" placeholder=("Enter description") type="text" required="true" /
+          .form-group
+            label.form-label.mt-4 for="update-status-code"  Status
+            select#update-status-code.form-select name="update_status" required="true"
+              - statuses.each_with_index do |status, index|
+                option value="#{status['code']}" == status['description']
+          .row.mt-4
+            input#update-tags type="hidden"
+            .col
+              p Selected
+              div#add-tag-area
+            .col
+              p Removed
+              div#remove-tag-area
+          hr.bg-danger.border-2.border-top.border-danger
+          .row
+            .col-sm-10
+              span.text-bold New tag
+              .input-group
+                .form-group
+                input#new-tag-input.form-control.form-control-sm name="new_tag_input" aria-describedby="basic-addon2" aria-label=("Long URL") placeholder=("") type="text" /
+                .input-group-append
+                  button.btn.btn-outline-secondary onclick="add_new_tag()" type="button"  Add
+
+        .modal-footer
+          button#update-property-btn.btn.btn-primary type="submit"  Update
+          button#close-property-btn.btn.btn-secondary data-bs-dismiss="modal" type="button"  Close
+
+
+#delete-url-modal.modal.fade
+  .modal-dialog role="document"
+    .modal-content
+      form method='post' action='/urls/delete' id='form-delete-url'
+        .modal-header
+          h5#delete-title.modal-title Confirm delete
+          button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+            span aria-hidden="true"
+        .modal-body
+          p This url will be deleted permanently.
+          input#delete-short-url type="hidden" name="delete-short-url"
+        .modal-footer
+          button.btn.btn-danger type="submit"  Delete
+          button.btn.btn-secondary data-bs-dismiss="modal" type="button"  Cancel

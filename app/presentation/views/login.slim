@@ -5,14 +5,14 @@ link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-soc
 div class="row"
   div class="col-sm-4"
   div class="col-sm-4"
-    h3 class="text-center" style='margin-top:10px' Login
+    h3.text-center.my-2 Login
     form method='post' action='/auth/login' id='form-login'
-      div class="form-group" style='margin-top:10px'
+      div.form-group.my-1
         label for='input-username' Username
         input type='text' name='username' id='input-username' class="form-control"
-      div class="form-group" style='margin-top:10px'
+      div.form-group.my-1
         label for='input-password' Password
         input type='password' name='password' id='input-password' class="form-control"
-      
-      button type='submit' id='button-login' value='login' style='margin-top:10px' class="btn btn-primary btn-block" Login
+
+      button.mt-2.btn.btn-primary.btn-block type='submit' id='button-login' value='login' Login
   div class="col-sm-4"

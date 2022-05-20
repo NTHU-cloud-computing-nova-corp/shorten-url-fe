@@ -1,0 +1,13 @@
+div class="row"
+  div class="col-sm-4"
+  div class="col-sm-4"
+    h3.text-center.my-2  Create an Account
+    form action='/auth/register' method='post' id='register-form'
+      div.form-group.my-1
+        label for='username_input' Username
+        input type='text' name='username' id='username_input' class="form-control"
+      div.form-group.my-1
+        label for='email_input' Email
+        input type='text' name='email' id='email_input' class="form-control"
+      button.mt-2.btn.btn-primary.btn-block.submit type='submit' id='registration-start-form-submit' value='submit' register
+  div class="col-sm-4"

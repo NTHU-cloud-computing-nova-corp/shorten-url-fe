@@ -1,8 +1,6 @@
-h1 style='margin-top:20px' Welcome to UrlShortener
-p This site allows you to store your URLs and share with teammates.
-  
-p
-  i Please avoid sharing sensitive documents to stranger!
+script src="/js/home.js"
+
+h1 style='margin-top:20px' Welcome to Url Shortener
 
 - unless current_account
   p
@@ -10,19 +8,31 @@ p
 
 - if current_account
   div class="row"
-    div class="col-sm-4"
-      .input-group.mb-3
-        .form-group
-        input.form-control aria-describedby="basic-addon2" aria-label=("Long URL") placeholder=("")  type="text" /
-        .input-group-append
-          button.btn.btn-outline-secondary type="button"  Generate!
+    form method="post" action="urls"
+      table
+        tr
+          td
+            span.mx-2  Description
+            span style="font-style: italic; margin-left:-5px" = '(optional)'
+          td Long Url
+        tr
+          td
+            .input-group.mb-3
+              .form-group
+              input#description.form-control.mx-2 name="description" aria-describedby="basic-addon2" aria-label=("Long URL") value="#{defined?(description) && description}" placeholder=("") type="text" /
+          td
+            .input-group.mb-3
+              .form-group
+              input#long_url.form-control name="long_url" aria-describedby="basic-addon2" aria-label=("Long URL") value="#{defined?(long_url) && long_url}" placeholder=("") type="text" /
+              .input-group-append
+                button.btn.btn-outline-secondary type="submit"  Generate!
 
   hr.bg-danger.border-2.border-top.border-danger
 
   div class="row" style='margin-top:20px'
     div class="col-sm-4"
       .input-group.mb-3
-        .form-group
-        input.form-control aria-describedby="basic-addon2" aria-label=("Shorten URL") placeholder=("") disabled='true' type="text" /
+        .form-group.mx-1
+        input#short_url.form-control aria-describedby="basic-addon2" aria-label=("Shorten URL") placeholder=("") value="#{defined?(short_url) && short_url}" disabled='true' type="text" /
         .input-group-append
-          button.btn.btn-outline-secondary type="button"  Copy
+          button.btn.btn-outline-secondary onclick="copy_short_url()" type="button"  Copy
