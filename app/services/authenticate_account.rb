@@ -5,23 +5,27 @@ require 'http'
 module UrlShortener
   # Returns an authenticated user, or nil
   class AuthenticateAccount
-    def initialize(config)
+    def initialize(config, session)
       @config = config
+      @session = session
     end
 
     def call(username:, password:)
-      response = HTTP.post("#{@config.API_URL}/auth/authenticate",
-                           json: { username:, password: })
+      response = HTTP.post("#{@config.API_URL}/auth/authenticate", json: { username:, password: })
+      response_data = JSON.parse(response.to_s)
 
-      raise(AppException::UnauthorizedError) if response.code == 403
-      raise(AppException::ApiServerError) if response.code != 200
+      raise Exceptions::UnauthorizedError, response_data['message'] if response.code == 403
+      raise Exceptions::BadRequestError if response.code == 400
+      raise Exceptions::ApiServerError if response.code != 200
 
-      account_info = JSON.parse(response.to_s)['attributes']
+      account_info = response_data['attributes']
+      current_account = Models::Account.new(account_info['account']['attributes'],
+                                            account_info['auth_token'])
 
-      { account: account_info['account'],
-        auth_token: account_info['auth_token'] }
+      Models::CurrentSession.new(@session).current_account = current_account
+      current_account
     rescue HTTP::ConnectionError
-      raise AppException::ApiServerError
+      raise Exceptions::ApiServerError
     end
   end
 end

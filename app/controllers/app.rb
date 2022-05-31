@@ -14,26 +14,50 @@ module UrlShortener
 
     route do |routing|
       response['Content-Type'] = 'text/html; charset=utf-8'
-      @current_account = CurrentSession.new(session).current_account
+      @current_account = Models::CurrentSession.new(session).current_account
+      @current_route = routing.instance_variable_get(:@remaining_path)
+
       routing.public
       routing.assets
       routing.multi_route
 
       # GET /
       routing.root do
-        view 'home', locals: { current_account: self.get_current_account }
+        view 'home', locals: { current_account: @current_account }
       end
 
-      routing.get String do |short_url|
+      routing.on String do |short_url|
         routing.redirect '/error/404' if short_url == 'favicon.ico' || short_url.length != 5
+        @url = Services::Urls.new(App.config).info(@current_account, short_url)
 
-        url = UrlsServices.new(App.config).call(@current_account, short_url)
-        routing.redirect url['long_url'], 301 # use 301 Moved Permanently
+        routing.post 'unlock' do
+          password = routing.params['password']
+          Services::Urls.new(App.config).unlock(password, short_url)
+
+          routing.redirect @url['long_url'], 301 # use 301 Moved Permanently
+        rescue StandardError
+          flash[:error] = 'Incorrect password! Please try again'
+          routing.redirect "/#{short_url}"
+        end
+
+        routing.get do
+          if @url['status_code'].eql?('L')
+            view :unlock_url, locals: { short_url: }
+          else
+            routing.redirect @url['long_url'], 301 # use 301 Moved Permanently
+          end
+        end
+
       end
-    rescue AppException::NotFoundError => e
-      routing.redirect '/error/404'
-    rescue AppException::UnauthorizedError => e
+    rescue Exceptions::ApiServerError => e
+      App.logger.warn "API server error: #{e.inspect}\n#{e.backtrace}"
       flash[:error] = e.message
+      response.status = e.instance_variable_get(:@status_code)
+      routing.redirect '/'
+    rescue Exceptions::UnauthorizedError, Exceptions::BadRequestError => e
+      flash.now[:error] = "Error: #{e.message}"
+      response.status = e.instance_variable_get(:@status_code)
+      view :login
     end
 
     def get_current_account

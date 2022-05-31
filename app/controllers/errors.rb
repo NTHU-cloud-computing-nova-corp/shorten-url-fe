@@ -2,7 +2,6 @@
 
 require 'roda'
 require_relative './app'
-require_relative '../exception/AppException'
 
 module UrlShortener
   # Web controller for UrlShortener API

@@ -16,9 +16,9 @@ nav role="navigation" class="navbar navbar-expand-sm navbar-dark bg-dark"
           - if @current_account.logged_in?
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
-                = "#{@current_account.account_info['attributes']['username']}"
+                = "#{@current_account.username}"
               div.dropdown-menu.end-0
-                a#profile-nav.dropdown-item href="/account/#{@current_account.account_info['attributes']['username']}" Account
+                a#profile-nav.dropdown-item href="/account/#{@current_account.username}" Account
                 a class="dropdown-item" href='/auth/logout' Logout
           - else
             li class="nav-item"

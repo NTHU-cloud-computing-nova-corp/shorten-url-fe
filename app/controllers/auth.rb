@@ -16,25 +16,18 @@ module UrlShortener
 
         # POST /auth/login
         routing.post do
-          account_info = AuthenticateAccount.new(App.config).call(
+          current_account = AuthenticateAccount.new(App.config, session).call(
             username: routing.params['username'],
             password: routing.params['password']
           )
 
-          current_account = Account.new(
-            account_info[:account],
-            account_info[:auth_token]
-          )
-
-          CurrentSession.new(session).current_account = current_account
-
           flash[:notice] = "Welcome back #{current_account.username}!"
           routing.redirect '/'
-        rescue AppException::UnauthorizedError
+        rescue Exceptions::UnauthorizedError
           flash.now[:error] = 'Username and password did not match our records'
           response.status = 401
           view :login
-        rescue AppException::ApiServerError => e
+        rescue Exceptions::ApiServerError => e
           App.logger.warn "API server error: #{e.inspect}\n#{e.backtrace}"
           flash[:error] = 'Our servers are not responding -- please try later'
           response.status = 500
@@ -46,7 +39,7 @@ module UrlShortener
       routing.is 'logout' do
         # GET /auth/logout
         routing.get do
-          CurrentSession.new(session).delete
+          Models::CurrentSession.new(session).delete
           flash[:notice] = "You've been logged out"
           routing.redirect @login_route
         end

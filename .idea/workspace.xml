@@ -1,44 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/app/controllers/errors.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/exception/AppException.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/lib/json_request.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/lib/secure_message.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/lib/secure_session.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/account.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/current_session.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/url.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/urls.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/public/js/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/public/js/urls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/public/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/views/error/404.slim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/views/register.slim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/views/register_confirm.slim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/create_account.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/get_all_urls.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/urls_services.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/verify_registration.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shorten-url-fe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shorten-url-fe.iml" afterDir="false" />
+    <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Update">
+      <change afterPath="$PROJECT_DIR$/app/exceptions/api_server_error.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/bad_request_error.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/unauthorized_request_error.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/presentation/views/unlock_url.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rakefile" beforeDir="false" afterPath="$PROJECT_DIR$/Rakefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/account.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/app.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/auth.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/account.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/account.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/flash_bar.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/flash_bar.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/errors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/errors.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/urls.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/urls.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/exception/AppException.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/account.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/current_session.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/current_session.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/url.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/url.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/urls.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/urls.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/public/js/urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/public/js/urls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/presentation/views/home.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/home.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/layout.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/layout.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/login.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/login.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/presentation/views/nav.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/nav.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/views/url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/authenticate_account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/authenticate_account.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/secrets.example.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/secrets.example.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/urls_services.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/urls_services.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/require_app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/require_app.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,17 +44,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/presentation/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/presentation/views" />
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/models" />
       <recent name="$PROJECT_DIR$/app/controllers" />
       <recent name="$PROJECT_DIR$/app/exception" />
-      <recent name="$PROJECT_DIR$/app/services" />
-      <recent name="$PROJECT_DIR$/app/presentation/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/presentation/public" />
@@ -155,6 +138,15 @@
       <workItem from="1652940127758" duration="719000" />
       <workItem from="1652941018529" duration="26876000" />
       <workItem from="1653004417381" duration="9000" />
+      <workItem from="1653006709469" duration="4921000" />
+      <workItem from="1653063099989" duration="9778000" />
+      <workItem from="1653111616158" duration="600000" />
+      <workItem from="1653130078869" duration="2525000" />
+      <workItem from="1653148847505" duration="729000" />
+      <workItem from="1653383734104" duration="13416000" />
+      <workItem from="1653918121452" duration="24000" />
+      <workItem from="1653988343269" duration="1924000" />
+      <workItem from="1653991421325" duration="8155000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -163,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652285778215</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update">
+      <created>1653006750618</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653006750618</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,12 +181,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="ruby-line">
+        <line-breakpoint type="ruby-line">
           <url>file://$PROJECT_DIR$/app/services/create_account.rb</url>
           <line>21</line>
           <properties myBlockOrdinal="-1">
@@ -195,7 +195,7 @@
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
+        <line-breakpoint type="ruby-line">
           <url>file://$PROJECT_DIR$/app/services/create_account.rb</url>
           <line>17</line>
           <properties myBlockOrdinal="-1">
@@ -203,42 +203,74 @@
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
+        <line-breakpoint type="ruby-line">
           <url>file://$PROJECT_DIR$/app/controllers/auth.rb</url>
-          <line>75</line>
+          <line>68</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/app.rb</url>
+        <line-breakpoint type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
+          <line>67</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
+          <line>47</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
+          <line>30</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/urls.rb</url>
           <line>35</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="24" />
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/auth.rb</url>
-          <line>23</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
+        <line-breakpoint type="ruby-line">
           <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
-          <line>21</line>
+          <line>57</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="29" />
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
+          <line>15</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/services/authenticate_account.rb</url>
+          <line>24</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1652974466370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
+    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654001752753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
   </component>
 </project>

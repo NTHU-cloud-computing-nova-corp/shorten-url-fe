@@ -1,8 +1,7 @@
 $(document).ready(function () {
     $('#url_list').DataTable({
         columnDefs: [{
-            targets: 1,
-            render: function (data, type, row) {
+            targets: 1, render: function (data, type, row) {
                 if (type === 'display') {
                     return $.fn.dataTable.render.ellipsis(50)(data, type, row);
                 }
@@ -25,65 +24,129 @@ open_delete_url_modal = (short_url) => {
 }
 
 open_update_url_modal = (url) => {
-    document.getElementById("add-tag-area").textContent = ''
-    document.getElementById("remove-tag-area").textContent = ''
+    document.getElementById("new-tag-container").textContent = ''
+    document.getElementById("new-shared-email-container").textContent = ''
 
     url = JSON.parse(url)
     document.getElementById('update-url-id').value = url.id
+    document.getElementById('update-short-url').value = url.short_url
     document.getElementById('update-long-url').value = url.long_url
     document.getElementById('update-description').value = url.description
     document.getElementById('update-status-code').select = url.status_code
-    document.getElementById('update-tags').value = url.tags
+    document.getElementById('new-tag-update-input').value = url.tags
+    document.getElementById('new-shared-email-update-input').value = url.shared_email_list
 
     url.tags.split(",").forEach(tag => {
-        add_new_tag(tag)
+        append_new_input("new-tag", tag)
     })
+
+    url.shared_email_list.split(",").forEach(email => {
+        append_new_input("new-shared-email", email)
+    })
+    // url.emails.split(",").forEach(email => {
+    //     append_new_input("new-email",email)
+    // })
 
     $('#update-url-modal').modal('show')
 }
 
-set_update_tag = () => {
-    const tags_element = Array.from(document.querySelectorAll("#add-tag-area > a > span"))
-    const tags = tags_element.map(m => m.innerHTML).join(",")
-    document.getElementById("update-tags").value = tags
+set_update_input = (container_id) => {
+    const input_element = Array.from(document.querySelectorAll(`#${container_id}-container > div > span`))
+    const inputs = input_element.map(m => m.textContent).join(",")
+    document.getElementById(`${container_id}-update-input`).value = inputs
 }
 
-remove_tag = (element_id) => {
-    const value = document.getElementById("tag-" + element_id).innerText
-    document.getElementById("a-" + element_id).remove()
+function mouseEnter(event) {
+    // highlight the mouseenter target
+    event.target.style.color = "red";
 
-    const remove_element_id = document.querySelectorAll("#remove-tag-area > a").length + 1
-    let a = document.createElement("a")
-    a.id = "rm-a-" + remove_element_id
-    a.classList.add("btn")
-    a.addEventListener("click", () => {
-        add_new_tag(value)
-        document.getElementById("rm-a-" + remove_element_id).remove()
-    });
-    let tag = document.createElement("span");
-    tag.id = "rm-tag-" + element_id
-    tag.classList.add("badge", "rounded-pill", "bg-danger")
-    tag.innerHTML = value
-
-    a.append(tag)
-    document.getElementById("remove-tag-area").append(a)
-    set_update_tag()
+    // reset the color after a short delay
+    setTimeout(function () {
+        event.target.style.color = "lightgray";
+    }, 500);
 }
 
-add_new_tag = (value) => {
-    if (!value) value = document.getElementById("new-tag-input").value
+remove_input = (container_id, id) => {
+    let ele = document.getElementById(id)
+    if (ele) ele.remove()
 
-    const element_id = document.querySelectorAll("#add-tag-area > a").length + 1
-    let a = document.createElement("a")
-    a.id = "a-" + element_id
-    a.classList.add("btn")
-    a.addEventListener("click", () => remove_tag(element_id));
-    let tag = document.createElement("span");
-    tag.id = "tag-" + element_id
-    tag.classList.add("badge", "rounded-pill", "bg-primary")
-    tag.innerHTML = value
+    set_update_input(container_id)
+}
 
-    a.append(tag)
-    document.getElementById("add-tag-area").append(a)
-    set_update_tag()
+append_new_input = (container_id, value) => {
+    const order = document.querySelectorAll(`${container_id}-container > div > span`).length + 1
+
+    let mainDiv = document.createElement("div")
+    mainDiv.id = container_id + "-div-input-" + order
+    mainDiv.classList.add("col-12", "form-group", "my-2")
+    mainDiv.style.width = "auto"
+    mainDiv.style.alignSelf = "center"
+
+    let span = document.createElement("span")
+    span.id = container_id + "-span-input-" + order
+    span.classList.add("badge", "rounded-pill", "bg-light")
+    span.innerText = value
+
+    let i = document.createElement("i")
+    i.id = container_id + "-i-input-" + order
+    i.style.cursor = "pointer"
+    i.style.color = "lightgray"
+    i.style.marginLeft = "5px"
+    i.classList.add("fa-solid", "fa-circle-xmark")
+    i.addEventListener("mouseenter", mouseEnter, false);
+    i.addEventListener("click", function () {
+        remove_input(container_id, mainDiv.id)
+    }, false);
+
+    span.appendChild(i)
+    mainDiv.appendChild(span)
+    document.getElementById(`${container_id}-container`).appendChild(mainDiv)
+    remove_input(container_id, `${container_id}-div`)
+    set_update_input(container_id)
+}
+
+add_new_input = (container_id, type) => {
+    if (document.getElementById(`${container_id}-div`) != null) {
+        document.getElementById(`${container_id}-div`).focus()
+        return;
+    }
+    let mainDiv = document.createElement("div")
+    mainDiv.id = `${container_id}-div`
+    mainDiv.classList.add("col-12")
+    mainDiv.style.display = "flex"
+    mainDiv.style.justifyContent = "flex-start"
+    mainDiv.style.flexDirection = "row"
+    mainDiv.style.alignItems = "center"
+
+    let div = document.createElement("div")
+    div.classList.add("form-group")
+    div.style.width = type == 'email' ? "35%" : "20%"
+
+    let input = document.createElement("input")
+    input.id = `${container_id}-input`
+    input.classList.add("form-control", "form-control-sm")
+    input.style.height = "25px"
+    input.placeholder = `Enter ${type}`
+    input.style.borderRadius = "30px"
+    input.type = type
+
+    input.addEventListener("change", function () {
+        append_new_input(container_id, document.getElementById(input.id).value)
+    })
+
+    let deleteTag = document.createElement("i")
+    deleteTag.id = `${container_id}-rm-i`
+    deleteTag.classList.add("fa-solid", "fa-circle-xmark")
+    deleteTag.style.margin = "-25px"
+    deleteTag.style.cursor = "pointer"
+    deleteTag.style.color = "lightgray"
+    deleteTag.addEventListener("mouseenter", mouseEnter, false);
+    deleteTag.addEventListener("click", function () {
+        remove_input(container_id, mainDiv.id)
+    }, false);
+
+    div.append(input)
+    mainDiv.append(div)
+    mainDiv.append(deleteTag)
+    document.getElementById(`${container_id}-container`).appendChild(mainDiv)
 }

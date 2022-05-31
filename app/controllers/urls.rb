@@ -2,7 +2,6 @@
 
 require 'roda'
 require_relative './app'
-require_relative '../exception/AppException'
 
 module UrlShortener
   # Web controller for UrlShortener API
@@ -10,20 +9,31 @@ module UrlShortener
     route('urls') do |routing|
       routing.on do
         routing.get do
-          urls = UrlsServices.new(App.config).get(@current_account)
-          statuses = UrlsServices.new(App.config).statuses(@current_account)
+          urls = Services::Urls.new(App.config).get(@current_account)
+          statuses = Services::Urls.new(App.config).statuses(@current_account)
           view 'url', locals: { urls:, statuses: }
         end
 
         routing.post 'delete' do
-          UrlsServices.new(App.config).delete(@current_account, routing.params['delete-short-url'])
+          Services::Urls.new(App.config).delete(@current_account, routing.params['delete-short-url'])
 
           flash[:notice] = 'URL has been deleted!'
           routing.redirect '/urls'
         end
 
+        routing.post 'update' do
+          result = Services::Urls.new(App.config).update(@current_account,
+                                                       routing.params['update_short_url'],
+                                                       routing.params['update_long_url'],
+                                                       routing.params['update_status'],
+                                                       routing.params['update_tags'],
+                                                       routing.params['update_description'])
+          flash[:notice] = 'URL updated!'
+          routing.redirect '/urls'
+        end
+
         routing.post do
-          result = UrlsServices.new(App.config).create(@current_account, routing.params['long_url'], routing.params['description'])
+          result = Services::Urls.new(App.config).create(@current_account, routing.params['long_url'], routing.params['description'])
 
           flash[:notice] = 'URL created!'
           view 'home',
