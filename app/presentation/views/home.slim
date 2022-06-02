@@ -2,11 +2,11 @@ script src="/js/home.js"
 
 h1 style='margin-top:20px' Welcome to Url Shortener
 
-- unless current_account
+- unless @current_account.logged_in?
   p
     a href='/auth/login' Login to start!
 
-- if current_account
+- if @current_account.logged_in?
   div class="row"
     form method="post" action="urls"
       table

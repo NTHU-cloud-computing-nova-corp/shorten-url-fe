@@ -1,0 +1,31 @@
+script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"
+script src="https://cdn.datatables.net/plug-ins/1.10.19/dataRender/ellipsis.js"
+
+script src="/js/urls.js"
+
+
+div.mt-5
+table#url_list.display style="width:100%;"
+  thead
+    tr
+      th Short Url
+      th Description
+      th Long Url
+      th Tags
+  tbody
+    - for url in urls
+      tr
+        td id="short-#{url['short_url']}" style="width: 10%;"
+          div style="display: flex; justify-content: space-between; place-items: center;"
+            div = url['short_url']
+            div
+              button.btn onclick="copy_url('#{request.base_url}/#{url['short_url']}')"
+                i.fa-solid.fa-copy.fa-sm
+        td id="description-#{url['short_url']}" = url['description']
+        td id="long-#{url['short_url']}" = url['long_url']
+        td style="width: 10%;"
+          .row
+            .col-6
+              - for tag in url['tags'].split(",")
+                span.badge.rounded-pill.bg-primary style="margin-right:3px"
+                  == tag

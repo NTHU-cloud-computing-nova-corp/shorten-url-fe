@@ -18,7 +18,7 @@ table#url_list.display style="width:100%;"
   tbody
     - for url in urls
       tr
-        td id="short-#{url['short_url']}" style="width: 10%;"
+        td id="short-#{url['short_url']}" style="width: 5%;"
           div style="display: flex; justify-content: space-between; place-items: center;"
             div = url['short_url']
             div
@@ -26,14 +26,14 @@ table#url_list.display style="width:100%;"
                 i.fa-solid.fa-copy.fa-sm
         td id="description-#{url['short_url']}" = url['description']
         td id="long-#{url['short_url']}" = url['long_url']
-        td style="width: 15%;"
+        td style="width: 5%;"
           .row
             .col-6
               - for tag in url['tags'].split(",")
                 span.badge.rounded-pill.bg-primary style="margin-right:3px"
                   == tag
-        td style="width: 10%;"
-          div style="margin-right:3px"
+        td style="width: 5%;"
+          div.text-center style="margin-right:3px"
             - if url['status_code'].eql?('L')
               = 'Lock'
             - elsif url['status_code'].eql?('P')
@@ -42,7 +42,8 @@ table#url_list.display style="width:100%;"
               = 'Public'
             - elsif url['status_code'].eql?('S')
               = 'Shared'
-        td style="width: 10%;"
+
+        td style="width: 15%;"
           button.btn.btn-sm.btn-outline-info type="button" title="Shared" onclick="share_url('#{url['short_url']}','#{url['shared_email_list']}')"
             i.fa-brands.fa-slideshare
           button.btn.btn-sm.btn-outline-primary type="button" title="Public" onclick="open_url('#{url['short_url']}')"
@@ -51,11 +52,14 @@ table#url_list.display style="width:100%;"
             i.fa-solid.fa-key
           button.btn.btn-sm.btn-outline-danger style="width: 32px;" title="Private" type="button" onclick="privatise_url('#{url['short_url']}')"
             i.fa-solid.fa-lock
-        td style="width: 10%;"
+        td style="width: 12%;"
           button.btn.btn-sm.btn-info.mx-1 style="width: 32px;" type="button" onclick="open_update_url_modal('#{url.to_json}')"
             i.fa-solid.fa-pen-to-square
           button.btn.btn-sm.btn-danger style="width: 32px;" type="button" onclick="open_delete_url_modal('#{url['short_url']}')"
             i.fa-solid.fa-trash
+          - if url['status_code'].eql?('S')
+            button.btn.btn-sm.btn-primary.mx-1 style="width: 32px;" type="button" onclick="open_send_invite_modal('#{url.to_json}')"
+              i.fa-solid.fa-share-nodes
 
 #lock-url-modal.modal.fade
   .modal-dialog role="document"
@@ -122,6 +126,27 @@ table#url_list.display style="width:100%;"
         .modal-footer
           button#share-url-btn.btn.btn-primary type="submit" disabled="true"  Share
           button#close-private-url-btn.btn.btn-secondary data-bs-dismiss="modal" type="button"  Close
+
+
+#send-invitation-modal.modal.fade
+  .modal-dialog role="document"
+    .modal-content
+      form method='post' action='/urls/invite' id='form-invte-url'
+        input#invite-short-url name="invite_short_url" type="hidden"
+        input#invite-emails name="invite_emails" type="hidden"
+        .modal-header
+          h5#invite-title.modal-title Send Invitation
+          button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+            span aria-hidden="true"
+        .modal-body
+          .row#invite-email-container style="flex-flow: wrap; display: flex;"
+          .form-group
+            label.col-form-label for="invite-message"  Message
+            textarea#invite-message.form-control name="invite_message" placeholder=("Enter message to receivers") type="text" required="true"
+
+        .modal-footer
+          button#invite-url-btn.btn.btn-primary type="submit" Invite
+          button#close-invite-url-btn.btn.btn-secondary data-bs-dismiss="modal" type="button"  Close
 
 
 #update-url-modal.modal.fade

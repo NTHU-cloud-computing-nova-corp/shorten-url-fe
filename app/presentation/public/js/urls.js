@@ -13,6 +13,32 @@ $(document).ready(function () {
     document.querySelector("#url_list > tbody > tr > td:nth-child(2)")
 });
 
+open_send_invite_modal = (url) => {
+    $('#send-invitation-modal').modal('show')
+
+    document.getElementById("invite-email-container").textContent = ''
+
+    url = JSON.parse(url)
+    document.getElementById('invite-short-url').value = url.short_url
+    document.getElementById('invite-emails').value = url.shared_email_list
+
+    url.shared_email_list.split(",").forEach(email => {
+        let mainDiv = document.createElement("div")
+        // mainDiv.id = container_id + "-div-input-" + order
+        mainDiv.classList.add("col-12", "form-group", "my-2")
+        mainDiv.style.width = "auto"
+        mainDiv.style.alignSelf = "center"
+
+        let span = document.createElement("span")
+        span.classList.add("badge", "rounded-pill", "bg-light")
+        span.innerText = email
+
+        mainDiv.appendChild(span)
+        document.getElementById("invite-email-container").appendChild(mainDiv)
+
+    })
+}
+
 copy_url = (short_url) => {
     navigator.clipboard.writeText(short_url);
 }

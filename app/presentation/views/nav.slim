@@ -11,6 +11,8 @@ nav role="navigation" class="navbar navbar-expand-sm navbar-dark bg-dark"
         - if @current_account.logged_in?
           li class="nav-item"
             a#url-nav.nav-link href="/urls" URLs
+          li class="nav-item"
+            a#share-url-nav.nav-link href="/shared_urls" Shared URLs
       form.d-flex
         ul.navbar-nav.me-auto
           - if @current_account.logged_in?

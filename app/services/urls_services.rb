@@ -18,6 +18,14 @@ module UrlShortener
         JSON.parse(response.to_s)['data'].map { |m| m['attributes'] }
       end
 
+      def shared_urls(current_account)
+        response = HTTP.auth("Bearer #{current_account.auth_token}")
+                       .get("#{@config.API_URL}/urls/shared_urls")
+        raise Exceptions::UnauthorizedError unless response.status.code == 200
+
+        JSON.parse(response.to_s)['data']
+      end
+
       def info(current_account, short_url)
         response = if current_account.auth_token.nil?
                      HTTP.get("#{@config.SHORT_URL}/#{short_url}")
@@ -75,11 +83,31 @@ module UrlShortener
         raise Exceptions::ApiServerError unless response.status.code == 200
       end
 
+      def privatise(current_account, params)
+        short_url = params['invite_short_url']
+        emails = params['invite_email_url']
+        message = params['invite_message']
+        response = HTTP.auth("Bearer #{current_account.auth_token}").post(
+          "#{@config.API_URL}/urls/#{short_url}/invite", json: { emails:, message: })
+
+        raise Exceptions::ApiServerError unless response.status.code == 200
+      end
+
       def share(current_account, params)
         short_url = params['share_short_url']
         emails = params['share_email_url']
         response = HTTP.auth("Bearer #{current_account.auth_token}").post("#{@config.API_URL}/urls/#{short_url}/share",
                                                                           json: { emails: })
+
+        raise Exceptions::ApiServerError unless response.status.code == 200
+      end
+
+      def invite(current_account, params)
+        short_url = params['invite_short_url']
+        emails = params['invite_emails']
+        message = params['invite_message']
+        response = HTTP.auth("Bearer #{current_account.auth_token}").post("#{@config.API_URL}/urls/#{short_url}/invite",
+                                                                          json: { emails:, message: })
 
         raise Exceptions::ApiServerError unless response.status.code == 200
       end

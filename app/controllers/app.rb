@@ -13,13 +13,15 @@ module UrlShortener
     plugin :flash
 
     route do |routing|
-      response['Content-Type'] = 'text/html; charset=utf-8'
-      @current_account = Models::CurrentSession.new(session).current_account
-      @current_route = routing.instance_variable_get(:@remaining_path)
+      begin
+        response['Content-Type'] = 'text/html; charset=utf-8'
+        @current_account = Models::CurrentSession.new(session).current_account
+        @current_route = routing.instance_variable_get(:@remaining_path)
 
-      routing.public
-      routing.assets
-      routing.multi_route
+        routing.public
+        routing.assets
+        routing.multi_route
+      end
 
       # GET /
       routing.root do
@@ -31,12 +33,16 @@ module UrlShortener
       end
 
       routing.on String do |short_url|
-        routing.redirect '/error/404' if short_url == 'favicon.ico' || short_url.length != 5
-        response.headers['Cache-Control'] = 'no-cache, no-store'
-        response.headers['Pragma'] = 'no-cache'
 
-        session[:short_url_tmp] = short_url
-        @url = Services::Urls.new(App.config).info(@current_account, short_url)
+        begin
+          routing.redirect '/error/404' if short_url == 'favicon.ico' || short_url.length != 5
+
+          response.headers['Cache-Control'] = 'no-cache, no-store'
+          response.headers['Pragma'] = 'no-cache'
+
+          session[:short_url_tmp] = short_url
+          @url = Services::Urls.new(App.config).info(@current_account, short_url)
+        end
 
         routing.post 'unlock' do
           password = routing.params['password']
@@ -56,7 +62,6 @@ module UrlShortener
             routing.redirect @url['long_url'], 301 # use 301 Moved Permanently
           end
         end
-
       end
     rescue Exceptions::ApiServerError => e
       App.logger.warn "API server error: #{e.inspect}\n#{e.backtrace}"
