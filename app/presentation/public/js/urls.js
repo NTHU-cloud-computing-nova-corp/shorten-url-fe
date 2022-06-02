@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#url_list').DataTable({
         columnDefs: [{
-            targets: 1, render: function (data, type, row) {
+            targets: 2, render: function (data, type, row) {
                 if (type === 'display') {
                     return $.fn.dataTable.render.ellipsis(50)(data, type, row);
                 }
@@ -17,6 +17,39 @@ copy_url = (short_url) => {
     navigator.clipboard.writeText(short_url);
 }
 
+lock_url = (short_url) => {
+    $('#lock-url-modal').modal('show')
+    document.getElementById('lock-short-url').value = short_url
+}
+
+share_url = (short_url, shared_email_list) => {
+    document.getElementById("new-shared-email-container").textContent = ''
+
+    $('#share-email-modal').modal('show')
+    document.getElementById('share-short-url').value = short_url
+    share_btn = document.getElementById('share-url-btn')
+
+    if (shared_email_list != "") {
+        shared_email_list.split(",").forEach(email => {
+            append_new_input("new-shared-email", email)
+        })
+        share_btn.disable = false
+    } else {
+        share_btn.disable = true
+        add_new_input('new-shared-email', 'email')
+    }
+}
+
+open_url = (short_url) => {
+    $('#open-url-modal').modal('show')
+    document.getElementById('open-short-url').value = short_url
+}
+
+privatise_url = (short_url) => {
+    $('#privatise-url-modal').modal('show')
+    document.getElementById('privatise-short-url').value = short_url
+}
+
 open_delete_url_modal = (short_url) => {
     document.getElementById('delete-title').innerText = `Confirm delete : ${short_url}`
     document.getElementById('delete-short-url').value = short_url
@@ -25,27 +58,21 @@ open_delete_url_modal = (short_url) => {
 
 open_update_url_modal = (url) => {
     document.getElementById("new-tag-container").textContent = ''
-    document.getElementById("new-shared-email-container").textContent = ''
 
     url = JSON.parse(url)
     document.getElementById('update-url-id').value = url.id
     document.getElementById('update-short-url').value = url.short_url
     document.getElementById('update-long-url').value = url.long_url
     document.getElementById('update-description').value = url.description
-    document.getElementById('update-status-code').select = url.status_code
     document.getElementById('new-tag-update-input').value = url.tags
-    document.getElementById('new-shared-email-update-input').value = url.shared_email_list
 
-    url.tags.split(",").forEach(tag => {
-        append_new_input("new-tag", tag)
-    })
-
-    url.shared_email_list.split(",").forEach(email => {
-        append_new_input("new-shared-email", email)
-    })
-    // url.emails.split(",").forEach(email => {
-    //     append_new_input("new-email",email)
-    // })
+    if (url.tags != "") {
+        url.tags.split(",").forEach(tag => {
+            append_new_input("new-tag", tag)
+        })
+    } else {
+        add_new_input('new-tag', 'tag')
+    }
 
     $('#update-url-modal').modal('show')
 }
@@ -54,6 +81,19 @@ set_update_input = (container_id) => {
     const input_element = Array.from(document.querySelectorAll(`#${container_id}-container > div > span`))
     const inputs = input_element.map(m => m.textContent).join(",")
     document.getElementById(`${container_id}-update-input`).value = inputs
+
+    console.log("container_id, inputs", container_id, inputs)
+    let share_btn;
+    if (container_id === 'new-shared-email') {
+        share_btn = document.getElementById('share-url-btn')
+        if (!inputs) {
+            share_btn.disabled = true
+        } else {
+            share_btn.disabled = false
+        }
+    }
+
+
 }
 
 function mouseEnter(event) {

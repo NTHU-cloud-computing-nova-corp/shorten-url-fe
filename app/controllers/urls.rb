@@ -22,13 +22,37 @@ module UrlShortener
         end
 
         routing.post 'update' do
-          result = Services::Urls.new(App.config).update(@current_account,
-                                                       routing.params['update_short_url'],
-                                                       routing.params['update_long_url'],
-                                                       routing.params['update_status'],
-                                                       routing.params['update_tags'],
-                                                       routing.params['update_description'])
+          Services::Urls.new(App.config).update(@current_account,
+                                                         routing.params)
           flash[:notice] = 'URL updated!'
+          routing.redirect '/urls'
+        end
+
+        routing.post 'lock' do
+          Services::Urls.new(App.config).lock(@current_account,
+                                                         routing.params)
+          flash[:notice] = 'URL Locked!'
+          routing.redirect '/urls'
+        end
+
+        routing.post 'open' do
+          Services::Urls.new(App.config).open(@current_account,
+                                                         routing.params)
+          flash[:notice] = 'URL is public!'
+          routing.redirect '/urls'
+        end
+
+        routing.post 'privatise' do
+          Services::Urls.new(App.config).privatise(@current_account,
+                                                         routing.params)
+          flash[:notice] = 'URL is private!'
+          routing.redirect '/urls'
+        end
+
+        routing.post 'share' do
+          Services::Urls.new(App.config).share(@current_account,
+                                                         routing.params)
+          flash[:notice] = 'URL is shared!'
           routing.redirect '/urls'
         end
 

@@ -39,19 +39,49 @@ module UrlShortener
         JSON.parse(response.to_s)['data']['attributes']
       end
 
-      def update(current_account,
-                 short_url,
-                 long_url,
-                 status_code,
-                 tags,
-                 description)
+      def update(current_account, params)
+        short_url = params['update_short_url']
+        long_url = params['update_long_url']
+        tags = params['update_tags']
+        description = params['update_description']
+
         response = HTTP.auth("Bearer #{current_account.auth_token}").post("#{@config.API_URL}/urls/#{short_url}/update",
-                                                                          json: { short_url:, long_url:, status_code:,
+                                                                          json: { short_url:, long_url:,
                                                                                   description:, tags: })
 
         raise Exceptions::ApiServerError unless response.status.code == 200
+      end
 
-        @status_code = status_code
+      def lock(current_account, params)
+        short_url = params['lock_short_url']
+        password = params['password']
+        response = HTTP.auth("Bearer #{current_account.auth_token}").post("#{@config.API_URL}/urls/#{short_url}/lock",
+                                                                          json: { password: })
+
+        raise Exceptions::ApiServerError unless response.status.code == 200
+      end
+
+      def open(current_account, params)
+        short_url = params['open_short_url']
+        response = HTTP.auth("Bearer #{current_account.auth_token}").post("#{@config.API_URL}/urls/#{short_url}/open")
+
+        raise Exceptions::ApiServerError unless response.status.code == 200
+      end
+
+      def privatise(current_account, params)
+        short_url = params['privatise_short_url']
+        response = HTTP.auth("Bearer #{current_account.auth_token}").post("#{@config.API_URL}/urls/#{short_url}/privatise")
+
+        raise Exceptions::ApiServerError unless response.status.code == 200
+      end
+
+      def share(current_account, params)
+        short_url = params['share_short_url']
+        emails = params['share_email_url']
+        response = HTTP.auth("Bearer #{current_account.auth_token}").post("#{@config.API_URL}/urls/#{short_url}/share",
+                                                                          json: { emails: })
+
+        raise Exceptions::ApiServerError unless response.status.code == 200
       end
 
       def create(current_account, long_url, description)

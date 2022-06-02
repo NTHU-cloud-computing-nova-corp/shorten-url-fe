@@ -2,27 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/app/exceptions/api_server_error.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/exceptions/bad_request_error.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/exceptions/unauthorized_request_error.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/presentation/views/unlock_url.slim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/authenticate.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/authenticate_google_account.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shorten-url-fe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shorten-url-fe.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/app.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/auth.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/errors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/errors.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/urls.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/urls.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/exception/AppException.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/account.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/current_session.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/current_session.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/url.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/url.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/urls.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/urls.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/presentation/public/js/urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/public/js/urls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/home.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/home.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/nav.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/nav.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/views/login.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/login.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/presentation/views/url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/authenticate_account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/authenticate_account.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/urls_services.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/urls_services.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/require_app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/require_app.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +24,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,17 +45,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/presentation/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/services" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/services" />
       <recent name="$PROJECT_DIR$/app/presentation/views" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/models" />
       <recent name="$PROJECT_DIR$/app/controllers" />
-      <recent name="$PROJECT_DIR$/app/exception" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/presentation/public" />
@@ -146,7 +147,9 @@
       <workItem from="1653383734104" duration="13416000" />
       <workItem from="1653918121452" duration="24000" />
       <workItem from="1653988343269" duration="1924000" />
-      <workItem from="1653991421325" duration="8155000" />
+      <workItem from="1653991421325" duration="8334000" />
+      <workItem from="1654047984125" duration="8000" />
+      <workItem from="1654065781538" duration="32904000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -162,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653006750618</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update">
+      <created>1654003261766</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654003261766</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,90 +197,18 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/create_account.rb</url>
-          <line>21</line>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/app.rb</url>
+          <line>29</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/create_account.rb</url>
-          <line>17</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/auth.rb</url>
-          <line>68</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
-          <line>67</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
-          <line>47</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
-          <line>30</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/urls.rb</url>
-          <line>35</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
-          <line>57</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
-          <line>15</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/authenticate_account.rb</url>
-          <line>24</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="59" />
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654001752753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
+    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654150738745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
   </component>
 </project>

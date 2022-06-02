@@ -28,6 +28,10 @@ module UrlShortener
 
       routing.on String do |short_url|
         routing.redirect '/error/404' if short_url == 'favicon.ico' || short_url.length != 5
+        response.headers['Cache-Control'] = 'no-cache, no-store'
+        response.headers['Pragma'] = 'no-cache'
+
+        session[:short_url_tmp] = short_url
         @url = Services::Urls.new(App.config).info(@current_account, short_url)
 
         routing.post 'unlock' do
@@ -41,7 +45,8 @@ module UrlShortener
         end
 
         routing.get do
-          if @url['status_code'].eql?('L')
+          case @url['status_code']
+          when 'L'
             view :unlock_url, locals: { short_url: }
           else
             routing.redirect @url['long_url'], 301 # use 301 Moved Permanently
@@ -55,9 +60,9 @@ module UrlShortener
       response.status = e.instance_variable_get(:@status_code)
       routing.redirect '/'
     rescue Exceptions::UnauthorizedError, Exceptions::BadRequestError => e
-      flash.now[:error] = "Error: #{e.message}"
+      flash[:error] = "Error: #{e.message}"
       response.status = e.instance_variable_get(:@status_code)
-      view :login
+      routing.redirect "/auth/login/#{session[:short_url_tmp]}"
     end
 
     def get_current_account

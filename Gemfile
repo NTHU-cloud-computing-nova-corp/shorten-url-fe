@@ -43,3 +43,6 @@ group :development, :test do
 end
 
 gem 'rack-rewrite'
+
+# OAuth
+gem 'google-api-client'
