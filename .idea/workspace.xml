@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/app/services/authenticate.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/authenticate_google_account.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shorten-url-fe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shorten-url-fe.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/app.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/auth.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/urls.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/urls.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/public/js/urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/public/js/urls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/login.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/login.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/authenticate_account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/authenticate_account.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/urls_services.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/urls_services.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +136,7 @@
       <workItem from="1653988343269" duration="1924000" />
       <workItem from="1653991421325" duration="8334000" />
       <workItem from="1654047984125" duration="8000" />
-      <workItem from="1654065781538" duration="32904000" />
+      <workItem from="1654065781538" duration="33159000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -172,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654003261766</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update">
+      <created>1654151670366</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654151670366</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -15,7 +15,7 @@ module UrlShortener
                                             authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
                                             scope: Google::Apis::GmailV1::AUTH_GMAIL_READONLY,
                                             state: short_url,
-                                            redirect_uri: "http://127.0.0.1:9292/auth/sso_callback"
+                                            redirect_uri: "#{request.base_url}/auth/sso_callback"
                                           })
       client.authorization_uri.to_s
     end
@@ -73,7 +73,7 @@ module UrlShortener
                                               client_id: App.config.GOOGLE_API_CLIENT_ID,
                                               client_secret: App.config.GOOGLE_API_CLIENT_SECRET,
                                               token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
-                                              redirect_uri: 'http://127.0.0.1:9292/auth/sso_callback',
+                                              redirect_uri: "#{request.base_url}/auth/sso_callback",
                                               code: routing.params['code']
                                             })
 
