@@ -23,7 +23,11 @@ module UrlShortener
 
       # GET /
       routing.root do
-        view 'home', locals: { current_account: @current_account }
+        if @current_account.logged_in?
+          view 'home', locals: { current_account: @current_account }
+        else
+          routing.redirect '/auth/login'
+        end
       end
 
       routing.on String do |short_url|
