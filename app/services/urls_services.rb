@@ -83,16 +83,6 @@ module UrlShortener
         raise Exceptions::ApiServerError unless response.status.code == 200
       end
 
-      def privatise(current_account, params)
-        short_url = params['invite_short_url']
-        emails = params['invite_email_url']
-        message = params['invite_message']
-        response = HTTP.auth("Bearer #{current_account.auth_token}").post(
-          "#{@config.API_URL}/urls/#{short_url}/invite", json: { emails:, message: })
-
-        raise Exceptions::ApiServerError unless response.status.code == 200
-      end
-
       def share(current_account, params)
         short_url = params['share_short_url']
         emails = params['share_email_url']
