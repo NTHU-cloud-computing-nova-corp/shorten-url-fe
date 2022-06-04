@@ -4,13 +4,15 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 # Web
-gem 'puma', '~> 5.3.1'
+gem 'puma', '>= 5.6.4'
 gem 'roda'
 gem 'slim'
 
 # Configuration
 gem 'figaro'
+gem 'rack', '>= 2.2.3.1'
 gem 'rake'
+
 
 # Communication
 gem 'http'
