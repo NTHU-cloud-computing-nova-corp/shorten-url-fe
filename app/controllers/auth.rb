@@ -44,11 +44,12 @@ module UrlShortener
           short_url_redirect = session[:short_url_tmp]
           session[:short_url_tmp] = nil
 
-          current_account = AuthenticateAccount.new(App.config, session).call(
+          current_account = AuthenticateAccount.new.call(
             username: routing.params['username'],
             password: routing.params['password']
           )
 
+          Models::CurrentSession.new(session).current_account = current_account
           flash[:notice] = "Welcome back #{current_account.username}!"
           if short_url_redirect.nil?
             routing.redirect '/'
@@ -56,9 +57,9 @@ module UrlShortener
             routing.redirect "/#{short_url_redirect}"
           end
         rescue Exceptions::UnauthorizedError
-          flash.now[:error] = 'Username and password did not match our records'
+          flash[:error] = 'Username and password did not match our records'
           response.status = 401
-          view :login
+          routing.redirect  '/auth/login'
         rescue Exceptions::ApiServerError => e
           App.logger.warn "API server error: #{e.inspect}\n#{e.backtrace}"
           flash[:error] = 'Our servers are not responding -- please try later'
@@ -79,9 +80,10 @@ module UrlShortener
 
         sso_response = client.fetch_access_token!
         session[:access_token] = sso_response['access_token']
-        current_account = AuthenticateGoogleAccount.new(App.config, session).call(
+        current_account = AuthenticateGoogleAccount.new(App.config).call(
           access_token: sso_response['access_token']
         )
+        Models::CurrentSession.new(session).current_account = current_account
 
         flash[:notice] = "Welcome #{current_account.username}!"
 

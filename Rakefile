@@ -14,18 +14,18 @@ task :console => :print_env do
 end
 
 desc 'Test all the specs'
-Rake::TestTask.new(:spec) do |t|
+Rake::TestTask.new(:test) do |t|
   t.pattern = 'spec/**/*_spec.rb'
   t.warning = false
 end
 
 desc 'Rerun tests on live code changes'
-task :respec do
-  sh 'rerun -c rake spec'
+task :retest do
+  sh 'rerun -c rake test'
 end
 
 desc 'Run rubocop to check style'
-task :style => :spec do
+task :style => :test do
   sh 'rubocop .'
 end
 
@@ -35,7 +35,7 @@ task :audit do
 end
 
 desc 'Checks for release'
-task :release => [:spec, :style, :audit] do
+task :release => [:test, :style, :audit] do
   puts "\nReady for release!"
 end
 
