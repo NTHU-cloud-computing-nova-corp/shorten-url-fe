@@ -6,7 +6,7 @@ module UrlShortener
   # Returns an authenticated user, or nil
   class AuthenticateAccount
     def call(username:, password:)
-      response = HTTP.post("#{ENV['API_URL']}/auth/authenticate", json: { username:, password: })
+      response = HTTP.post("#{ENV.fetch('API_URL', nil)}/auth/authenticate", json: { username:, password: })
       raise Exceptions::UnauthorizedError if response.code == 401
 
       Authenticate.new.call(response:)
