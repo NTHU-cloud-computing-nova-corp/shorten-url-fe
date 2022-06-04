@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/spec/fixtures/auth_account.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/integration/service_authenticate_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rakefile" beforeDir="false" afterPath="$PROJECT_DIR$/Rakefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/auth.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/auth.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/authenticate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/authenticate.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/authenticate_account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/authenticate_account.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/authenticate_google_account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/authenticate_google_account.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ruby-version" beforeDir="false" afterPath="$PROJECT_DIR$/.ruby-version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +170,7 @@
       <workItem from="1653991421325" duration="8334000" />
       <workItem from="1654047984125" duration="8000" />
       <workItem from="1654065781538" duration="45330000" />
-      <workItem from="1654310519107" duration="4392000" />
+      <workItem from="1654310519107" duration="4913000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -228,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654176580973</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update">
+      <created>1654315671801</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654315671801</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
