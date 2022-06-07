@@ -1,5 +1,7 @@
 $(document).ready(function () {
     $('#url_list').DataTable({
+        stripeClasses: [],
+        ordering: false,
         columnDefs: [{
             targets: 2, render: function (data, type, row) {
                 if (type === 'display') {

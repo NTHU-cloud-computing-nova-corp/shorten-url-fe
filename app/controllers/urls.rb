@@ -9,9 +9,12 @@ module UrlShortener
     route('urls') do |routing|
       routing.on do
         routing.get do
+          updated_url = routing.params['updated_url']
           urls = Services::Urls.new(App.config).get(@current_account)
+
+          urls = Services::Urls.new(App.config).modify_url(urls, updated_url)
           statuses = Services::Urls.new(App.config).statuses(@current_account)
-          view 'url', locals: { urls:, statuses: }
+          view 'url', locals: { urls:, statuses:, updated_url: }
         end
 
         routing.post 'delete' do
@@ -25,42 +28,54 @@ module UrlShortener
           Services::Urls.new(App.config).update(@current_account,
                                                 routing.params)
           flash[:notice] = 'URL updated!'
-          routing.redirect '/urls'
+          session[:affected_url] = routing.params['short_url']
+
+          routing.redirect "/urls?updated_url=#{routing.params['update_short_url']}"
         end
 
         routing.post 'lock' do
           Services::Urls.new(App.config).lock(@current_account,
                                               routing.params)
           flash[:notice] = 'URL Locked!'
-          routing.redirect '/urls'
+          # routing.redirect '/urls'
+          routing.redirect "/urls?updated_url=#{routing.params['lock_short_url']}"
         end
 
         routing.post 'open' do
           Services::Urls.new(App.config).open(@current_account,
                                               routing.params)
           flash[:notice] = 'URL is public!'
-          routing.redirect '/urls'
+          session[:affected_url] = routing.params['short_url']
+
+          # routing.redirect '/urls'
+          routing.redirect "/urls?updated_url=#{routing.params['open_short_url']}"
         end
 
         routing.post 'privatise' do
           Services::Urls.new(App.config).privatise(@current_account,
                                                    routing.params)
           flash[:notice] = 'URL is private!'
-          routing.redirect '/urls'
+          session[:affected_url] = routing.params['short_url']
+
+          # routing.redirect '/urls'
+          routing.redirect "/urls?updated_url=#{routing.params['privatise_short_url']}"
         end
 
         routing.post 'share' do
           Services::Urls.new(App.config).share(@current_account,
                                                routing.params)
-          flash[:notice] = 'URL is shared!'
-          routing.redirect '/urls'
+          flash[:notice] = 'URL shared!'
+          session[:affected_url] = routing.params['short_url']
+          # routing.redirect '/urls'
+          routing.redirect "/urls?updated_url=#{routing.params['share_short_url']}"
         end
 
         routing.post 'invite' do
           Services::Urls.new(App.config).invite(@current_account,
-                                               routing.params)
+                                                routing.params)
           flash[:notice] = 'Invitation sent!'
-          routing.redirect '/urls'
+          # routing.redirect '/urls'
+          routing.redirect "/urls?updated_url=#{routing.params['invite_short_url']}"
         end
 
         routing.post do

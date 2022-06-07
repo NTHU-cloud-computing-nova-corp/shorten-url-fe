@@ -69,7 +69,7 @@ module UrlShortener
       response.status = e.instance_variable_get(:@status_code)
       routing.redirect '/'
     rescue Exceptions::UnauthorizedError, Exceptions::BadRequestError => e
-      flash[:error] = "Error: #{e.message}"
+      flash[:error] = 'Please login to continue!'
       response.status = e.instance_variable_get(:@status_code)
       routing.redirect "/auth/login/#{session[:short_url_tmp]}"
     end

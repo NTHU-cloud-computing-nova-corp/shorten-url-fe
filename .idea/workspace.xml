@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Update">
+    <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Remove extra service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/app.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/urls.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/urls.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/public/js/urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/public/js/urls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/views/nav.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/nav.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/views/url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/urls_services.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/urls_services.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +179,8 @@
       <workItem from="1653991421325" duration="8334000" />
       <workItem from="1654047984125" duration="8000" />
       <workItem from="1654065781538" duration="45330000" />
-      <workItem from="1654310519107" duration="7936000" />
+      <workItem from="1654310519107" duration="8291000" />
+      <workItem from="1654598567248" duration="6301000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -260,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654316944762</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Remove extra service">
+      <created>1654319531286</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654319531286</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +294,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Remove extra service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove extra service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -295,28 +309,12 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/authenticate_account.rb</url>
-          <line>8</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/services/authenticate_google_account.rb</url>
           <line>12</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/auth.rb</url>
-          <line>11</line>
-          <properties myBlockOrdinal="-1">
-            <option name="block-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/controllers/auth.rb</url>
@@ -327,18 +325,26 @@
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/services/authenticate_account.rb</url>
-          <line>13</line>
+          <url>file://$PROJECT_DIR$/app/controllers/urls.rb</url>
+          <line>16</line>
           <properties myBlockOrdinal="-1">
             <option name="block-ordinal" value="-1" />
           </properties>
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/services/urls_services.rb</url>
+          <line>25</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shorten_url_fe@Test_Service_Objects.rcov" NAME="Test Service Objects Coverage Results" MODIFIED="1654314698261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
-    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654319126874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
+    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654602194064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
   </component>
 </project>

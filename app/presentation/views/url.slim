@@ -17,7 +17,7 @@ table#url_list.display style="width:100%;"
       th Manage
   tbody
     - for url in urls
-      tr
+      tr style="#{updated_url.eql?(url['short_url']) ? 'background: floralwhite;' : '' }"
         td id="short-#{url['short_url']}" style="width: 5%;"
           div style="display: flex; justify-content: space-between; place-items: center;"
             div = url['short_url']

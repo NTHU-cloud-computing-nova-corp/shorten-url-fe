@@ -18,6 +18,15 @@ module UrlShortener
         JSON.parse(response.to_s)['data'].map { |m| m['attributes'] }
       end
 
+      def modify_url(urls, short_url)
+        return urls if short_url.nil?
+
+        updated_url = urls.find { |s| s['short_url'].eql?(short_url) }
+        removed_urls = urls.reject { |r| r['short_url'].eql?(short_url) }
+        [updated_url].concat(removed_urls)
+
+      end
+
       def shared_urls(current_account)
         response = HTTP.auth("Bearer #{current_account.auth_token}")
                        .get("#{@config.API_URL}/urls/shared_urls")
@@ -58,6 +67,7 @@ module UrlShortener
                                                                                   description:, tags: })
 
         raise Exceptions::ApiServerError unless response.status.code == 200
+
       end
 
       def lock(current_account, params)
