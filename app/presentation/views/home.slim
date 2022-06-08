@@ -25,7 +25,7 @@ h1 style='margin-top:20px' Welcome to Url Shortener
               .form-group
               input#long_url.form-control name="long_url" aria-describedby="basic-addon2" aria-label=("Long URL") value="#{defined?(long_url) && long_url}" placeholder=("") required="true" type="text" /
               .input-group-append
-                button.btn.btn-outline-secondary type="submit"  Generate!
+                button#generate-btn.btn.btn-outline-secondary type="submit"  Generate!
 
   hr.bg-danger.border-2.border-top.border-danger
 
@@ -33,6 +33,6 @@ h1 style='margin-top:20px' Welcome to Url Shortener
     div class="col-sm-4"
       .input-group.mb-3
         .form-group.mx-1
-        input#short_url.form-control aria-describedby="basic-addon2" aria-label=("Shorten URL") placeholder=("") value="#{defined?(short_url) && short_url}" disabled='true' type="text" /
+        input#short_url_output.form-control aria-describedby="basic-addon2" aria-label=("Shorten URL") placeholder=("") value="#{defined?(short_url) && short_url}" disabled='true' type="text" /
         .input-group-append
           button.btn.btn-outline-secondary onclick="copy_short_url()" type="button"  Copy

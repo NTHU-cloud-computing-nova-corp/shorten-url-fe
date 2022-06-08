@@ -17,11 +17,11 @@ nav role="navigation" class="navbar navbar-expand-sm navbar-dark bg-dark"
         ul.navbar-nav.me-auto
           - if @current_account.logged_in?
             li.nav-item.dropdown
-              a.nav-link.dropdown-toggle data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
+              a#account-nav.nav-link.dropdown-toggle data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
                 = "#{@current_account.username}"
               div.dropdown-menu.end-0
                 a#profile-nav.dropdown-item href="/account/#{@current_account.username}" Account
-                a class="dropdown-item" href='/auth/logout' Logout
+                a#logout-nav class="dropdown-item" href='/auth/logout' Logout
           - else
             li class="nav-item"
               a class="nav-link" href='/auth/login' Login

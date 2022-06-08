@@ -13,10 +13,10 @@ div class="row"
       div.form-group.my-1
         label for='input-password' Password
         input type='password' name='password' id='input-password' class="form-control"
-
-      button.mt-2.btn.btn-primary.btn-block type='submit' id='button-login' value='login' Login
-      .d-grid.gap-2.mt-4
-        a.btn.btn-lg.btn-danger type="button" href="#{gg_oauth_url}"
-          | Login with Gmail
+      .d-grid.gap-2.mt-2
+        button#btn-login.btn.btn-primary type='submit' value='login' Login
+      .d-grid.gap-2.mt-2
+        a#btn-gg-login.btn.btn.btn-danger type="button" href="#{gg_oauth_url}"
           i.fa-brands.fa-google.mx-3
+          | Continue with Google
   div class="col-sm-4"

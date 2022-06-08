@@ -27,7 +27,7 @@ module UrlShortener
         routing.post 'update' do
           Services::Urls.new(App.config).update(@current_account,
                                                 routing.params)
-          flash[:notice] = 'URL updated!'
+          flash[:notice] = 'URL Updated!'
           session[:affected_url] = routing.params['short_url']
 
           routing.redirect "/urls?updated_url=#{routing.params['update_short_url']}"
@@ -64,7 +64,7 @@ module UrlShortener
         routing.post 'share' do
           Services::Urls.new(App.config).share(@current_account,
                                                routing.params)
-          flash[:notice] = 'URL shared!'
+          flash[:notice] = 'URL Shared!'
           session[:affected_url] = routing.params['short_url']
           # routing.redirect '/urls'
           routing.redirect "/urls?updated_url=#{routing.params['share_short_url']}"
@@ -81,7 +81,7 @@ module UrlShortener
         routing.post do
           result = Services::Urls.new(App.config).create(@current_account, routing.params['long_url'], routing.params['description'])
 
-          flash[:notice] = 'URL created!'
+          flash.now[:notice] = 'URL created!'
           view 'home',
                locals: { short_url: "#{request.base_url}/#{result['short_url']}",
                          long_url: result['long_url'],
