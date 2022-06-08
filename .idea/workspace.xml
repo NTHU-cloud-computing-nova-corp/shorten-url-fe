@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Update style">
+    <list default="true" id="0021dd4b-bc02-4edc-bdee-7ecfee683123" name="Changes" comment="Update component ids">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/urls.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/urls.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/home.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/home.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/login.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/login.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/nav.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/nav.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/secrets.example.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/secrets.example.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +176,8 @@
       <workItem from="1654065781538" duration="45330000" />
       <workItem from="1654310519107" duration="8291000" />
       <workItem from="1654598567248" duration="12781000" />
-      <workItem from="1654654426706" duration="2610000" />
+      <workItem from="1654654426706" duration="4157000" />
+      <workItem from="1654668489881" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -280,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654613218369</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update component ids">
+      <created>1654660746535</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1654660746535</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +307,8 @@
     <MESSAGE value="Update" />
     <MESSAGE value="Remove extra service" />
     <MESSAGE value="Update style" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update style" />
+    <MESSAGE value="Update component ids" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update component ids" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -353,6 +358,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shorten_url_fe@Test_Service_Objects.rcov" NAME="Test Service Objects Coverage Results" MODIFIED="1654314698261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
-    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654658938390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
+    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654660653583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
   </component>
 </project>
