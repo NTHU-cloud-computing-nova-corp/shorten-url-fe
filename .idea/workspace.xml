@@ -6,7 +6,8 @@
       <change afterPath="$PROJECT_DIR$/server.csr" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server.key" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/public/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/public/js/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/views/shared_urls.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/shared_urls.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/views/url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +182,7 @@
       <workItem from="1654598567248" duration="12781000" />
       <workItem from="1654654426706" duration="4157000" />
       <workItem from="1654668489881" duration="153000" />
-      <workItem from="1654753009800" duration="4013000" />
+      <workItem from="1654753009800" duration="5074000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -295,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654668584765</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update component ids">
+      <created>1654773939051</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1654773939051</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
