@@ -1,5 +1,12 @@
-div.mt-5
-  h1 = 'unlock the url'
+div.mt-5.text-center
+  h3 = 'URL is locked! Please fill in the password to access the url'
   form method='post' action="/#{short_url}/unlock"
-    input#password name="password"
-      button = 'unlock'
+    div class="row" style='margin-top:20px'
+      div class="col-sm-4"
+      div class="col-sm-4"
+        .input-group.mb-3
+          .form-group.mx-1
+          input#password.form-control aria-describedby="basic-addon2" name="password" placeholder=("Enter password") type="password" /
+          .input-group-append
+            button.btn.btn-outline-secondary type="submit"  Unlock
+      div class="col-sm-4"

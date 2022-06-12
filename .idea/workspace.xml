@@ -6,8 +6,7 @@
       <change afterPath="$PROJECT_DIR$/server.csr" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server.key" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/shared_urls.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/shared_urls.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presentation/views/url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/url.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presentation/views/unlock_url.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/presentation/views/unlock_url.slim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +181,11 @@
       <workItem from="1654598567248" duration="12781000" />
       <workItem from="1654654426706" duration="4157000" />
       <workItem from="1654668489881" duration="153000" />
-      <workItem from="1654753009800" duration="5074000" />
+      <workItem from="1654753009800" duration="5720000" />
+      <workItem from="1654843189785" duration="627000" />
+      <workItem from="1655000858406" duration="608000" />
+      <workItem from="1655024944095" duration="3124000" />
+      <workItem from="1655056337418" duration="985000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1652285778215</created>
@@ -303,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654773939051</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Update component ids">
+      <created>1654776828445</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1654776828445</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +387,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shorten_url_fe@Test_Service_Objects.rcov" NAME="Test Service Objects Coverage Results" MODIFIED="1654314698261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
-    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1654773772180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
+    <SUITE FILE_PATH="coverage/shorten_url_fe@run_dev__shorten_url_fe.rcov" NAME="run:dev: shorten-url-fe Coverage Results" MODIFIED="1655056468127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="shorten-url-fe" />
   </component>
 </project>
